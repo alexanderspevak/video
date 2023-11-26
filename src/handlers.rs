@@ -9,7 +9,6 @@ use futures_util::StreamExt;
 use std::sync::mpsc;
 use std::thread;
 
-#[axum_macros::debug_handler]
 pub async fn upload_video(
     State(state): State<AppState>,
     Path(video_id): Path<String>,
@@ -62,7 +61,6 @@ pub async fn upload_video(
         .into_response()
 }
 
-#[axum_macros::debug_handler]
 pub async fn get_videos_list(State(state): State<AppState>) -> Json<VideoListResponse> {
     let hm = state.data.read();
     let mut videos = Vec::new();
@@ -78,7 +76,6 @@ pub async fn get_videos_list(State(state): State<AppState>) -> Json<VideoListRes
     Json(VideoListResponse { videos })
 }
 
-#[axum_macros::debug_handler]
 pub async fn get_videos_list_filter(
     State(state): State<AppState>,
     Path(prefix): Path<String>,
@@ -121,7 +118,6 @@ pub async fn delete_video(State(state): State<AppState>, Path(video_id): Path<St
         .into_response()
 }
 
-#[axum_macros::debug_handler]
 pub async fn download_video(
     State(state): State<AppState>,
     Path(video_id): Path<String>,
