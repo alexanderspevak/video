@@ -1,0 +1,26 @@
+[package]
+name = "video"
+version = "0.1.0"
+edition = "2021"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+axum = "0.6.2"
+tokio = { version = "1", features = ["full"] }
+uuid = {version="1",features=["v4","serde"]}
+bytes = "1"
+tokio-util = { version = "0.7", features = ["codec"] }
+tokio-stream = "0.1"  # For streaming the video chunks
+hyper = "0.14"
+futures-util = "0.3.29"
+axum-macros = "0.3.8"
+serde = { version = "1.0.97", features = ["derive"] }
+parking_lot = "0.12.1"
+futures = "0.3.29"
+
+[dev-dependencies]
+loom = "0.5"
+
+
+
